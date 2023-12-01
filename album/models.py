@@ -147,3 +147,14 @@ class Tracks(models.Model):
     class Meta:
         managed = False
         db_table = 'tracks'
+
+
+class Album(models.Model):
+    AlbumId = models.IntegerField(primary_key=True)
+    Title = models.CharField(max_length=100)
+
+class Track(models.Model):
+    TrackId = models.IntegerField(primary_key=True)
+    Name = models.CharField(max_length=100)
+    AlbumId = models.IntegerField()
+    Album = models.ForeignKey(Album)
